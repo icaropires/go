@@ -84,6 +84,7 @@ func WithPingTimeout(k time.Duration) func(*Client) {
 // Default 30 seconds. Currently only operational on TCP/TLS connections.
 func WithConnectTimeout(t time.Duration) func(*Client) {
 	return func(c *Client) {
+		c.timeout = t
 		c.opts.SetConnectTimeout(t)
 	}
 }
